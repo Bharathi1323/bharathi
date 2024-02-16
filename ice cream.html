@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Stall</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        nav {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .menu-card {
+            flex: 1;
+            max-width: 300px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            margin: 10px;
+        }
+
+        .menu-card img {
+            max-width: 100%;
+            height:150px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .order-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .ice-cream-slider {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .ice-cream-slider-content {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .ice-cream-card {
+            min-width: 100%;
+            margin-right: 20px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>ice cream basket</h1>
+    </header>
+
+    <nav>
+         <a href="home.html">Home</a> |
+        <a href="about page.html">About</a> |
+        <a href="contact.html">Contact</a> 
+
+    </nav>
+
+    <section id="iceCreamSection">
+        <div class="ice-cream-slider">
+            <div class="ice-cream-slider-content">
+                <div class="menu-card ice-cream-card">
+                    <h2>Vanilla Ice Cream</h2>
+                    <img src="https://5.imimg.com/data5/UF/RK/MY-31939142/vanilla-ice-cream-500x500.jpg" alt="Vanilla Ice Cream">
+                    <p>Classic and creamy vanilla flavor!</p>
+                    <p>Price: $30 per scoop</p>
+                    <button class="order-btn" onclick="orderIceCream('Vanilla Ice Cream')">Taste me!</button>
+                </div>
+
+                <div class="menu-card ice-cream-card">
+                    <h2>Chocolate Chip Cookie Dough</h2>
+                    <img src="https://www.benjerry.com/files/live/sites/systemsite/files/US%20and%20Global%20Assets/Flavors/Product%20Assets/US/Chocolate%20Chip%20Cookie%20Dough%20Ice%20Cream/web_Tower_ChocolateChipCookieDough_RGB_HR2_60M.png" alt="Chocolate Chip Cookie Dough Ice Cream">
+                    <p>Rich chocolate ice cream with cookie dough chunks!</p>
+                    <p>Price: $50 per scoop</p>
+                    <button class="order-btn" onclick="orderIceCream('Chocolate Chip Cookie Dough')">Taste me!</button>
+                </div>
+
+                <div class="menu-card ice-cream-card">
+                    <h2>Strawberry Cheesecake</h2>
+                    <img src="https://www.kalscoops.com/wp-content/uploads/2018/02/Strawberry-Cheesecake-SideScoop-480x480.jpg" alt="Strawberry Cheesecake Ice Cream">
+                    <p>Indulgent strawberry and cheesecake goodness!</p>
+                    <p>Price: $60 per scoop</p>
+                    <button class="order-btn" onclick="orderIceCream('Strawberry Cheesecake')">Taste me!</button>
+                </div>
+
+                <div class="menu-card ice-cream-card">
+                    <h2>blackberry ice cream</h2>
+                    <img src="https://png.pngtree.com/thumb_back/fh260/background/20220218/pngtree-blueberry-ice-cream-blackberry-ice-cream-forest-fruit-gelato-photo-image_23754058.jpg" alt="blackberry Ice Cream">
+                    <p>Refreshing blueberry flavor !</p>
+                    <p>Price: $50 per scoop</p>
+                    <button class="order-btn" onclick="orderIceCream('blackberry ice cream')">Taste me!</button>
+                </div>
+
+                <div class="menu-card ice-cream-card">
+                    <h2>Rocky Road</h2>
+                    <img src="https://s3.amazonaws.com/cms.ipressroom.com/286/files/20225/202206021355/6298c168b3aed342de72a18b_Story+Behind+Rocky+Road/Story+Behind+Rocky+Road_c9403c59-9c14-477b-aa18-abed03276c35-prv.png" alt="Rocky Road Ice Cream">
+                    <p>Chocolaty ice cream with marshmallows and nuts!</p>
+                    <p>Price: $60 per scoop</p>
+                    <button class="order-btn" onclick="orderIceCream('Rocky Road')">Taste me!</button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script>
+        var currentSlide = 0;
+
+        function showSlide(n) {
+            var slides = document.querySelector('.ice-cream-slider-content');
+            currentSlide += n;
+
+            if (currentSlide > slides.children.length - 1) {
+                currentSlide = 0;
+            }
+
+            if (currentSlide < 0) {
+                currentSlide = slides.children.length - 1;
+            }
+
+            slides.style.transform = 'translateX(' + (-currentSlide * 100) + '%)';
+        }
+
+        function orderIceCream(iceCreamName) {
+            alert("Ordered " + iceCreamName);
+        }
+    </script>
+
+    <button onclick="showSlide(-1)">Previous</button>
+    <button onclick="showSlide(1)">Next</button>
+
+</body>
+
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Stall</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        nav {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        section {
+            display: flex;
+            flex-wrap:wrap;
+            justify-content: center;
+            gap: 20px;
+            padding:10px;
+            text-align: center;
+        }
+       .menu-card {
+            max-width: 250px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 5px;
+            text-align: center;
+            margin: 5px;
+        }
+
+        .menu-card img {
+            max-width:100%;
+            height:150px;
+            border-radius: 8px;
+            margin-bottom: 5px;
+        }
+
+        .order-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .order-btn{
+            background-color: #4CAF50;
+            color:white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+      .juice-slider {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .juice-slider-content {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .juice-card {
+            min-width: 100%;
+            margin-right: 10px;
+}
+
+     </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Juice's basket</h1>
+    </header>
+
+    <nav>
+        <a href="home.html">Home</a> |
+        <a href="about page.html">About</a> |
+        <a href="contact.html">Contact</a> 
+
+    </nav>
+
+    <section id="juiceSection">
+        <div class="juice-slider">
+            <div class="juice-slider-content">
+                <div class="menu-card juice-card">
+                    <h2>Orange Juice</h2>
+                    <img src="https://thumbs.dreamstime.com/b/orange-juice-17172736.jpg" alt="Orange Juice">
+                    <p>Refreshing and full of vitamin C!</p>
+                    <p>Price: $30 per glass</p>
+                    <button class="order-btn" onclick="orderJuice('Orange Juice')">Taste me!</button>
+                </div>
+
+                <div class="menu-card juice-card">
+                    <h2>Apple Juice</h2>
+                    <img src="https://4.imimg.com/data4/HG/JC/MY-20344102/apple-drink-500x500.jpg" alt="Apple Juice">
+                    <p>Delicious and naturally sweet!</p>
+                    <p>Price: $130 per glass</p>
+                    <button class="order-btn" onclick="orderJuice('Apple Juice')">Taste me!</button>
+                </div>
+ <div class="menu-card juice-card">
+                    <h2>Pomegranate Juice</h2>
+                    <img src="https://d3cm4d6rq8ed33.cloudfront.net/media/navpravartakfiles/19/891cbdcd-0da1-49b2-8d29-6dd11a368011.jpg" alt="Apple Juice">
+                    <p>Delicious and naturally sweet!</p>
+                    <p>Price: $120 per glass</p>
+                    <button class="order-btn" onclick="orderJuice('pomegranate Juice')">Taste me!</button>
+                </div>
+
+                    <div class="menu-card juice-card">
+                    <h2>Watermelon Juice</h2>
+                    <img src="https://img.freepik.com/premium-photo/watermelon-juice-with-splashes-with-watermelon-fruit-isolated-white-background-studio-shot_741910-8400.jpg" alt="Apple Juice">
+                    <p>Delicious and naturally sweet!</p>
+                    <p>Price: $80 per glass</p>
+                    <button class="order-btn" onclick="orderJuice('watermelon Juice')">Taste me!</button>
+                </div>
+ <div class="menu-card juice-card">
+                    <h2>Grapes Juice</h2>
+                    <img src="https://5.imimg.com/data5/RX/SQ/MY-4580347/black-grape-juice-fresh-fruit-juice-100-25-natural-pulp-500x500.jpg" alt="Apple Juice">
+                    <p>Delicious and naturally sweet!</p>
+                    <p>Price: $50 per glass</p>
+                    <button class="order-btn" onclick="orderJuice('grapes Juice')">Taste me!</button>
+                </div>
+ <div class="menu-card juice-card">
+                    <h2>Guava Juice</h2>
+                    <img src="https://5.imimg.com/data5/VW/UR/DQ/ANDROID-84958472/product-jpeg-500x500.jpg" alt="Apple Juice">
+                    <p>Delicious and naturally sweet!</p>
+                    <p>Price:$50 per glass</p>
+                    <button class="order-btn" onclick="orderJuice('guava Juice')">Taste me!</button>
+                </div>
+        </div>
+    </section>
+
+    <script>
+        var currentSlide = 0;
+
+        function showSlide(n) {
+            var slides = document.querySelector('.juice-slider-content');
+            currentSlide += n;
+
+            if (currentSlide > slides.children.length - 1) {
+                currentSlide = 0;
+            }
+
+            if (currentSlide < 0) {
+                currentSlide = slides.children.length - 1;
+            }
+
+            slides.style.transform = 'translateX(' + (-currentSlide * 100) + '%)';
+        }
+
+        function orderJuice(juiceName) {
+            alert("Ordered " + juiceName);
+        }
+    </script>
+
+    <button onclick="showSlide(-1)">Previous</button>
+    <button onclick="showSlide(1)">Next</button>
+
+</body>
+
+</html>
+ 
+

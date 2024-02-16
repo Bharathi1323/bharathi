@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Stall</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        nav {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .menu-card {
+            flex: 1;
+            max-width: 300px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            margin: 10px;
+        }
+
+        .menu-card img {
+            max-width: 100%;
+            height:150px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .order-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .shake-slider {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .shake-slider-content {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .shake-card {
+            min-width: 100%;
+            margin-right: 20px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Shakes Basket</h1>
+    </header>
+
+    <nav>
+        <a href="home.html">Home</a> |
+        <a href="about page.html">About</a> |
+        <a href="contact.html">Contact</a> 
+
+    </nav>
+
+    <section id="shakeSection">
+        <div class="shake-slider">
+            <div class="shake-slider-content">
+             
+                <div class="menu-card shake-card">
+                    <h2>Strawberry Shake</h2>
+                    <img src="https://img.freepik.com/premium-photo/glass-strawberry-milkshake-isolated-white-background_185193-46813.jpg" alt="Strawberry Shake">
+                    <p>Delicious strawberry flavor with a creamy blend!</p>
+                    <p>Price: $4.00 per glass</p>
+                    <button class="order-btn" onclick="orderShake('Strawberry Shake')">Taste me!</button>
+                </div>
+
+                <div class="menu-card shake-card">
+                    <h2>Chocolate Hazelnut Shake</h2>
+                    <img src="https://img.freepik.com/fotos-premium/delicioso-milk-shake-de-chocolate-com-gotas-de-xarope-de-chocolate-isolado-em-fundo-branco_878783-10258.jpg" alt="Chocolate Hazelnut Shake">
+                    <p>Rich chocolate hazelnut goodness in every sip!</p>
+                    <p>Price: $4.50 per glass</p>
+                    <button class="order-btn" onclick="orderShake('Chocolate Hazelnut Shake')">Taste me!</button>
+                </div>
+
+                <div class="menu-card shake-card">
+                    <h2>Avokado shake</h2>
+                    <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA4L3Jhd3BpeGVsX29mZmljZV8yOF8zZF9vZl9tYXRjaGFfYnViYmxlX3RlYV93aXRoX2Jyb3duX3N1Z2FyX2lzb181ZGVkOWFjMC05ZDI4LTRiMjEtOTkyMC00ZTIyOTQxMzVjNGFfMS5qcGc.jpg" alt="smoothie avocado Shake">
+                    <p>Smooth vanilla shake with crunchy almond bits!</p>
+                    <p>Price: $4.00 per glass</p>
+                    <button class="order-btn" onclick="orderShake('Vanilla Almond Shake')">Taste me!</button>
+                </div>
+
+                <div class="menu-card shake-card">
+                    <h2>Banana Caramel Shake</h2>
+                    <img src="https://img.freepik.com/premium-photo/banana-smoothie-with-white-background_741910-11652.jpg" alt="Banana Caramel Shake">
+                    <p>Sweet banana flavor with a drizzle of caramel!</p>
+                    <p>Price: $4.50 per glass</p>
+                    <button class="order-btn" onclick="orderShake('Banana Caramel Shake')">Taste me!</button>
+                </div>
+
+                <div class="menu-card shake-card">
+                    <h2>Mango Passion Shake</h2>
+                    <img src="https://img.freepik.com/premium-photo/fresh-smoothie-mango-lassi-with-mango-fruit-isolated-white-background-studio-shot_741910-7135.jpg" alt="Mango Passion Shake">
+                    <p>Tropical mango blended with the passion fruit twist!</p>
+                    <p>Price: $4.00 per glass</p>
+                    <button class="order-btn" onclick="orderShake('Mango Passion Shake')">Taste me!</button>
+                </div>
+
+                </div>
+        </div>
+    </section>
+
+    <script>
+        var currentSlide = 0;
+
+        function showSlide(n) {
+            var slides = document.querySelector('.shake-slider-content');
+            currentSlide += n;
+
+            if (currentSlide > slides.children.length - 1) {
+                currentSlide = 0;
+            }
+
+            if (currentSlide < 0) {
+                currentSlide = slides.children.length - 1;
+            }
+
+            slides.style.transform = 'translateX(' + (-currentSlide * 100) + '%)';
+        }
+
+        function orderShake(shakeName) {
+            alert("Ordered " + shakeName);
+        }
+    </script>
+
+    <button onclick="showSlide(-1)">Previous</button>
+    <button onclick="showSlide(1)">Next</button>
+
+</body>
+
+</html>

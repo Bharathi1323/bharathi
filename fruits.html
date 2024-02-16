@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Stall</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding:10px;
+        }
+
+        nav {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        section {
+            display: flex;
+            flex-wrap;
+            justify-content:center;
+            padding: 5px;
+            text-align: center;
+        }
+
+        .menu-card {
+            max-width: 250px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 5px;
+            text-align: center;
+            margin: 5px;
+        }
+
+        .menu-card img {
+            max-width:100%;
+            height:150px;
+            border-radius: 8px;
+            margin-bottom: 5px;
+        }
+
+        .order-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .fruits-slider {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .fruits-slider-content {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .fruits-card {
+            min-width: 100%;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Fruit's world</h1>
+    </header>
+
+    <nav>
+        <a href="home.html">Home</a> |
+        <a href="about page.html">About</a> |
+        <a href="contact.html">Contact</a> 
+
+    </nav>
+
+    <section>
+        <div class="fruits-slider">
+            <div class="fruits-slider-content">
+                
+                <div class="menu-card fruits-card">
+                    <h2>Orange fruits</h2>
+                    <img src="C:\Users\ELCOT\Desktop\download.jpg" alt="Orange fruits">
+                    <p>Refreshing and full of vitamin C!</p>
+                    <p>Price:$100/1kg</p>
+                    <button class="order-btn" onclick="orderfruits('Orange fruits')">Taste me</button>
+                </div>
+
+                <div class="menu-card fruits-card">
+                    <h2>Apple fruits</h2>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpo6y-PBXOGyeqZFB8vS74740igP_dkUZIOA&usqp=CAU" alt="Apple fruits">
+                    <p>Delicious and naturally sweet!</p>
+                    <p>Price:$150/1kg</p>
+                    <button class="order-btn" onclick="orderfruits('Apple fruits')">Taste me</button>
+                </div>
+ <div class="menu-card fruits-card">
+                    <h2>Strawberry</h2>
+                   <img src="https://thumbs.dreamstime.com/b/three-strawberries-strawberry-leaf-white-background-114284301.jpg" alt="strawberry fruits">
+                    <p>Delicious and naturally sweet!</p>
+                    <p>Price:$230/1kg</p>
+                    <button class="order-btn" onclick="orderfruits('Strawberry fruits')">Taste me</button>
+                </div>
+
+              
+           <div class="menu-card fruits-card">
+                    <h2>Dragon Fruit</h2>
+                    <img src="https://insanelygoodrecipes.com/wp-content/uploads/2020/04/Dragon_Fruit-1024x536.png">
+                    <p>Delicious and naturally sweet!</p>
+                    <p>Price: $200/1kg</p>
+                    <button class="order-btn" onclick="orderfruits('Dragon Fruit')">Taste me</button>
+                </div>
+ <div class="menu-card fruits-card">
+                    <h2>Mango</h2>
+                    <img src="https://indiasupermarkt.ch/wp-content/uploads/2018/10/Mango.jpg" alt="Apple fruits">
+                    <p>Delicious and naturally sweet!</p>
+                    <p>Price:$150/1kg</p>
+                    <button class="order-btn" onclick="orderfruits('Mango')">Taste me</button>
+                </div>
+ <div class="menu-card fruits-card">
+                    <h2>Kivi</h2>
+                    <img src="https://images.all-free-download.com/images/graphiclarge/kiwi_fruit_kiwi_fruit_214193.jpg" alt="kivi fruits">
+                    <p>Delicious and naturally sweet!</p>
+                    <p>Price:$250/1kg</p>
+                    <button class="order-btn" onclick="orderfruits('Kivi')">Taste me</button>
+                </div>
+        </div>
+    </section>
+
+    <script>
+        var currentSlide = 0;
+
+        function showSlide(n) {
+            var slides = document.querySelector('.fruits-slider-content');
+            currentSlide += n;
+
+            if (currentSlide > slides.children.length - 1) {
+                currentSlide = 0;
+            }
+
+            if (currentSlide < 0) {
+                currentSlide = slides.children.length - 1;
+            }
+
+            slides.style.transform = 'translateX(' + (-currentSlide * 100) + '%)';
+        }
+
+        function orderfruits(fruitsName) {
+            alert("Ordered " + fruitsName);
+        }
+    </script>
+
+    <button onclick="showSlide(-1)">Previous</button>
+    <button onclick="showSlide(1)">Next</button>
+
+</body>
+
+</html>
